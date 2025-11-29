@@ -1,0 +1,35 @@
+[
+  {
+    "slug": "enterprise-dashboard",
+    "title": "Enterprise Dashboard",
+    "category": "Web Application",
+    "description": "A comprehensive analytics platform for enterprise clients, designed to visualize key performance indicators and facilitate data-driven decision-making.",
+    "image": "/projects/project-1.png",
+    "technologies": ["Next.js", "React", "TypeScript", "D3.js", "PostgreSQL"],
+    "challenges": "Integrating disparate data sources, ensuring real-time data updates, and creating a highly customizable dashboard UI.",
+    "solution": "Developed a modular Next.js application with a robust API layer for data aggregation. Implemented WebSocket for real-time updates and a flexible component library for UI customization.",
+    "outcome": "Improved decision-making speed by 30%, reduced manual reporting effort by 50%, and enhanced data visibility across departments."
+  },
+  {
+    "slug": "fitness-mobile-app",
+    "title": "Fitness Mobile App",
+    "category": "Mobile Development",
+    "description": "A cross-platform fitness tracking application that helps users set goals, monitor progress, and connect with fitness communities.",
+    "image": "/projects/project-2.png",
+    "technologies": ["React Native", "Firebase", "Node.js", "Express.js"],
+    "challenges": "Ensuring smooth performance on both iOS and Android, handling complex user data synchronization, and designing an intuitive UX for fitness tracking.",
+    "solution": "Utilized React Native for a single codebase, Firebase for real-time data and authentication, and a custom Node.js backend for advanced analytics and community features.",
+    "outcome": "Achieved 100k+ downloads in the first six months, leading to a 4.8-star rating on app stores and significant user engagement."
+  },
+  {
+    "slug": "e-commerce-platform",
+    "title": "E-Commerce Platform",
+    "category": "Full Stack",
+    "description": "A modern online shopping experience featuring AI-powered product recommendations, personalized user journeys, and seamless checkout processes.",
+    "image": "/projects/project-3.png",
+    "technologies": ["Next.js", "Stripe API", "GraphQL", "MongoDB", "Python (TensorFlow)"],
+    "challenges": "Implementing scalable product search, integrating secure payment gateways, and developing a performant AI recommendation engine.",
+    "solution": "Built a Next.js frontend with GraphQL for efficient data fetching, integrated Stripe for payments, and developed a Python-based microservice with TensorFlow for AI recommendations.",
+    "outcome": "Increased average order value by 20%, improved customer retention by 15%, and achieved a 99.9% uptime during peak sales periods."
+  }
+]

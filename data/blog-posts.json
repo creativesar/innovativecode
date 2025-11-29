@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "the-future-of-web-development-2025",
+    "title": "The Future of Web Development in 2025",
+    "author": "Jane Doe",
+    "date": "2025-11-01",
+    "image": "/blog/blog-1.jpg",
+    "excerpt": "Exploring the cutting-edge trends that will shape web development in the coming year, from AI-driven interfaces to advanced serverless architectures.",
+    "content": "In 2025, web development is poised for revolutionary changes. Artificial intelligence will no longer be a niche feature but a core component of user interfaces, enabling more personalized and adaptive experiences. Serverless computing will continue its ascent, allowing developers to focus on code rather than infrastructure. The rise of WebAssembly will bring near-native performance to web applications, pushing the boundaries of what's possible in the browser. Furthermore, enhanced security protocols and privacy-first design will become paramount, reshaping how data is handled and protected across the web. Developers will need to continuously upskill, embracing new paradigms like quantum-safe cryptography and decentralized web technologies to stay ahead in this rapidly evolving landscape."
+  },
+  {
+    "slug": "mastering-seo-for-small-businesses",
+    "title": "Mastering SEO for Small Businesses: A Comprehensive Guide",
+    "author": "John Smith",
+    "date": "2025-10-15",
+    "image": "/blog/blog-2.jpg",
+    "excerpt": "A step-by-step guide for small business owners to improve their search engine rankings and drive organic traffic.",
+    "content": "SEO can seem daunting for small businesses, but mastering a few key principles can significantly boost your online visibility. Start with thorough keyword research to identify what your target audience is searching for. Optimize your on-page content, including titles, meta descriptions, and headers, to align with these keywords. Technical SEO, often overlooked, ensures your site is crawlable and performs well; focus on site speed, mobile-friendliness, and structured data. Building high-quality backlinks from reputable sources remains crucial for authority. Finally, consistently create valuable, engaging content that addresses your audience's pain points, establishing your business as an industry expert. Regular monitoring and adaptation to algorithm changes are key to long-term success."
+  },
+  {
+    "slug": "the-power-of-ui-ux-in-digital-marketing",
+    "title": "The Power of UI/UX in Digital Marketing",
+    "author": "Emily White",
+    "date": "2025-09-20",
+    "image": "/blog/blog-3.jpg",
+    "excerpt": "Discover how exceptional user interface and user experience design can significantly impact your digital marketing efforts and conversion rates.",
+    "content": "In today's competitive digital landscape, a strong UI/UX is no longer a luxury but a necessity for effective digital marketing. A user-friendly interface ensures visitors can easily navigate your site, find information, and complete desired actions, directly impacting conversion rates. A compelling user experience fosters trust and brand loyalty, reducing bounce rates and increasing engagement. Elements like intuitive navigation, clear calls-to-action, fast loading times, and mobile responsiveness are critical. By investing in thoughtful UI/UX design, businesses can create digital experiences that not only attract but also retain customers, turning casual browsers into loyal advocates and significantly amplifying their marketing ROI."
+  }
+]

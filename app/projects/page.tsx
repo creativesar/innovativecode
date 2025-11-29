@@ -1,16 +1,5 @@
 "use client";
 
-import { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { motion } from "framer-motion";
-import { GlassCard } from "@/components/ui/glass-card";
-import Image from "next/image";
-import Link from "next/link";
-import { ExternalLink } from "lucide-react";
-
-"use client";
-
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -46,8 +35,8 @@ export default function ProjectsPage() {
                 }
                 const data: Project[] = await response.json();
                 setProjects(data);
-            } catch (err: any) {
-                setError(err.message);
+            } catch (err: Error | unknown) {
+                setError(err instanceof Error ? err.message : "An unknown error occurred");
             } finally {
                 setLoading(false);
             }
@@ -124,7 +113,7 @@ export default function ProjectsPage() {
                     Our Work
                 </h1>
                 <p className="text-xl md:text-2xl text-muted-foreground">
-                    A curated collection of projects we're proud of
+                    A curated collection of projects we&apos;re proud of
                 </p>
             </motion.div>
 
@@ -195,7 +184,7 @@ export default function ProjectsPage() {
                     href="/contact"
                     className="inline-block rounded-full bg-primary px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-primary/90 hover:shadow-xl transition-all duration-300"
                 >
-                    Let's Talk
+                    Let&apos;s Talk
                 </Link>
             </motion.div>
         </div>

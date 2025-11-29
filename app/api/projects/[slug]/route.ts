@@ -4,10 +4,10 @@ import path from "path";
 
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
+  const { slug } = await params;
   try {
-    const { slug } = params;
     const filePath = path.join(process.cwd(), "data", "projects.json");
     const fileContent = await fs.promises.readFile(filePath, "utf-8");
     const projects = JSON.parse(fileContent);
@@ -20,7 +20,7 @@ export async function GET(
 
     return NextResponse.json(project);
   } catch (error) {
-    console.error(`Error fetching project with slug ${params.slug}:`, error);
+    console.error(`Error fetching project with slug ${slug}:`, error);
     return NextResponse.json(
       { error: "Failed to fetch project" },
       { status: 500 }

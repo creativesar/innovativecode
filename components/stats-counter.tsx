@@ -19,39 +19,39 @@ export default function StatsCounter() {
   const counterRefs = useRef<(HTMLSpanElement | null)[]>([]);
 
   useEffect(() => {
-  const ctx = gsap.context(() => {
-    counterRefs.current.forEach((el, i) => {
-      if (!el) return;
-      let obj = { val: 0 };
+    const ctx = gsap.context(() => {
+      counterRefs.current.forEach((el, i) => {
+        if (!el) return;
+        let obj = { val: 0 };
 
-      gsap.to(obj, {
-        val: stats[i].value,
-        duration: 2.8,
-        ease: "power3.out",
-        scrollTrigger: { trigger: el, start: "top 85%", once: true },
-        onUpdate: () => {
-          el.textContent =
-            new Intl.NumberFormat("en-GB").format(Math.round(obj.val)) +
-            stats[i].suffix;
-        },
+        gsap.to(obj, {
+          val: stats[i].value,
+          duration: 2.8,
+          ease: "power3.out",
+          scrollTrigger: { trigger: el, start: "top 85%", once: true },
+          onUpdate: () => {
+            el.textContent =
+              new Intl.NumberFormat("en-GB").format(Math.round(obj.val)) +
+              stats[i].suffix;
+          },
+        });
       });
-    });
 
-    gsap.fromTo(
-      [".heading", ".subheading", ".stat-card"],
-      { opacity: 0, y: 40 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        stagger: 0.15,
-        ease: "power4.out",
-        scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
-      }
-    );
-  }, sectionRef);
+      gsap.fromTo(
+        [".heading", ".subheading", ".stat-card"],
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          stagger: 0.15,
+          ease: "power4.out",
+          scrollTrigger: { trigger: sectionRef.current, start: "top 75%" },
+        }
+      );
+    }, sectionRef);
 
-  return () => ctx.revert();
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -78,7 +78,7 @@ export default function StatsCounter() {
             <div key={i} className="stat-card group">
               <div className="relative inline-block">
                 <span
-                  ref={(el) => (counterRefs.current[i] = el)}
+                  ref={(el) => { counterRefs.current[i] = el; }}
                   className="block text-5xl md:text-6xl lg:text-7xl font-black tabular-nums text-gray-900
                              group-hover:scale-110 group-hover:text-transparent 
                              group-hover:bg-clip-text group-hover:bg-gradient-to-r 

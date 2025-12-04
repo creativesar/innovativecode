@@ -5,7 +5,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
-import { GlassCard } from "@/components/ui/glass-card";
 import { Code2, Palette, Smartphone, Globe, Zap, Users } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -63,19 +62,7 @@ export default function ServicesPage() {
     sectionsRef.current.forEach((section, index) => {
       if (!section) return;
 
-      // Parallax effect for each section
-      gsap.to(section.querySelector('.service-card'), {
-        y: -50,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
-
-      // Fade in animation
+      // Keep only fade in animation, remove parallax effect
       gsap.fromTo(section,
         { opacity: 0 },
         {
@@ -93,7 +80,7 @@ export default function ServicesPage() {
   }, { scope: containerRef });
 
   return (
-    <div ref={containerRef} className="min-h-screen">
+    <div ref={containerRef} className="min-h-screen section-bg">
       {/* Hero */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -102,7 +89,7 @@ export default function ServicesPage() {
         className="min-h-[60vh] flex items-center justify-center px-6"
       >
         <div className="max-w-4xl text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 gradient-text">
             Our Services
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground">
@@ -120,16 +107,16 @@ export default function ServicesPage() {
             className="min-h-screen flex items-center justify-center px-6 relative"
           >
             <div className="service-card max-w-5xl w-full">
-              <GlassCard className="p-12 md:p-16 relative overflow-hidden">
+              <div className="modern-card p-12 md:p-16 relative overflow-hidden">
                 {/* Background gradient */}
                 <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-br ${service.color} opacity-10 blur-3xl rounded-full`} />
 
                 <div className="relative z-10">
-                  <div className={`inline-block p-4 rounded-2xl bg-gradient-to-br ${service.color} text-white mb-8`}>
+                  <div className={`inline-block p-4 rounded-2xl bg-gradient-to-br ${service.color} text-white mb-8 floating-element`}>
                     <service.icon size={48} />
                   </div>
 
-                  <h2 className="text-4xl md:text-6xl font-bold mb-6">
+                  <h2 className="text-4xl md:text-6xl font-bold mb-6 gradient-text">
                     {service.title}
                   </h2>
 
@@ -142,7 +129,7 @@ export default function ServicesPage() {
                       <motion.div
                         key={feature}
                         whileHover={{ x: 10 }}
-                        className="flex items-center gap-3 p-4 rounded-lg bg-white/5 border border-white/10"
+                        className="flex items-center gap-3 p-4 rounded-lg bg-white/5 border border-white/10 modern-card"
                       >
                         <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${service.color}`} />
                         <span className="text-lg">{feature}</span>
@@ -150,7 +137,7 @@ export default function ServicesPage() {
                     ))}
                   </div>
                 </div>
-              </GlassCard>
+              </div>
             </div>
           </div>
         ))}

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/card";
+import { ModernCard } from "@/components/modern-card";
 import { Code, Layout, Megaphone, Palette, Smartphone } from "lucide-react";
 
 const services = [
@@ -34,7 +34,7 @@ const services = [
 
 export function ServiceSection() {
     return (
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white section-bg">
             <div className="container mx-auto px-4 md:px-6">
                 <div className="text-center mb-16">
                     {/* Content removed as requested */}
@@ -49,19 +49,17 @@ export function ServiceSection() {
                             transition={{ delay: index * 0.1, duration: 0.6 }}
                             viewport={{ once: true }}
                         >
-                            <Card className="h-full border border-gray-200 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
-                                <CardHeader className="flex flex-col items-center text-center">
-                                    <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mb-4 text-primary">
+                            <ModernCard className="h-full">
+                                <div className="flex flex-col items-center text-center p-6">
+                                    <div className="w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center mb-4 text-cyan-600 floating-element">
                                         <service.icon className="w-8 h-8" />
                                     </div>
-                                    <CardTitle className="text-lg font-semibold text-foreground">{service.title}</CardTitle>
-                                </CardHeader>
-                                <CardContent className="text-center">
-                                    <CardDescription className="text-sm text-muted-foreground">
+                                    <h3 className="text-lg font-semibold mb-3 bg-clip-text text-transparent bg-gradient-to-r from-cyan-600 to-purple-600">{service.title}</h3>
+                                    <p className="text-sm text-slate-600">
                                         {service.description}
-                                    </CardDescription>
-                                </CardContent>
-                            </Card>
+                                    </p>
+                                </div>
+                            </ModernCard>
                         </motion.div>
                     ))}
                 </div>

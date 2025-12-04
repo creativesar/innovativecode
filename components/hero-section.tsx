@@ -2,7 +2,6 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { useRef } from "react";
@@ -84,17 +83,26 @@ export function HeroSection() {
           business forward.
         </p>
 
-        <div className="hero-buttons flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button size="xl" variant="glow" asChild>
-            <Link href="/contact">
-              Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
-            </Link>
-          </Button>
-          <Button size="xl" variant="outlineGlow" asChild>
-            <Link href="/projects">
-              View Our Work
-            </Link>
-          </Button>
+        <div className="hero-buttons flex flex-col sm:flex-row items-center justify-center gap-6 mt-10">
+          <Link 
+            href="/contact" 
+            className="px-8 py-4 bg-gradient-to-r from-cyan-600 to-blue-800 text-white font-bold rounded-full shadow-lg hover:shadow-cyan-500/40 transform hover:-translate-y-1 transition-all duration-300 flex items-center border border-cyan-400/40 hover:border-cyan-400/80 backdrop-blur-sm relative overflow-hidden group"
+          >
+            <span className="relative z-10 flex items-center">
+              Start Your Project
+              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </span>
+            <span className="absolute inset-0 bg-gradient-to-r from-cyan-400/30 to-blue-600/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></span>
+            <span className="absolute top-0 left-0 w-full h-1 bg-cyan-400 rounded-full animate-progress-bar"></span>
+          </Link>
+          <Link 
+            href="/projects" 
+            className="px-8 py-4 bg-transparent border-2 border-cyan-500/60 text-cyan-400 font-bold rounded-full shadow-lg hover:shadow-cyan-500/40 hover:border-cyan-400 hover:text-white transform hover:-translate-y-1 transition-all duration-300 backdrop-blur-sm relative overflow-hidden group"
+          >
+            <span className="relative z-10">View Our Work</span>
+            <span className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></span>
+            <span className="absolute top-0 left-0 w-full h-1 bg-cyan-500 rounded-full animate-progress-bar-reverse"></span>
+          </Link>
         </div>
 
         {/* Floating Elements / 3D Placeholder */}

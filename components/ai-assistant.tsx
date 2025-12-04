@@ -16,7 +16,7 @@ export default function AiAssistant() {
   const [messages, setMessages] = useState<Message[]>([
     {
       role: "assistant",
-      content: "Hi! I'm the InnovativeCode AI assistant. How can I help you today?",
+      content: "Hi! I'm the InnovativeCode AI assistant. I can help answer any questions you have. How can I help you today?",
     },
   ]);
   const [input, setInput] = useState("");
@@ -41,7 +41,7 @@ export default function AiAssistant() {
     setIsLoading(true);
 
     try {
-      const res = await fetch("/api/ai", {
+      const res = await fetch("/api/ai-assistant", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: userMsg }),
@@ -53,14 +53,21 @@ export default function AiAssistant() {
         throw new Error(data.error || "Failed to get response");
       }
 
-      setMessages((prev) => [...prev, { role: "assistant", content: data.message }]);
-    } catch (err: any) {
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          content: err.message.includes("key")
-            ? "AI assistant is not configured yet. Please contact the admin."
+          content: data.message,
+        },
+      ]);
+    } catch (err: any) {
+      console.error("Chat error:", err);
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: err.message.includes("key") || err.message.includes("API")
+            ? "AI assistant is not properly configured. Please check that GEMINI_API_KEY is set correctly in the .env.local file."
             : "Sorry, I'm having trouble connecting. Please try again later.",
         },
       ]);
@@ -77,7 +84,7 @@ export default function AiAssistant() {
             initial={{ opacity: 0, y: 20, scale: 0.9 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
-            className="fixed bottom-20 right-4 w-96 h-[520px] bg-white border border-gray-200 rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden"
+            className="fixed bottom-20 right-4 w-96 h-[500px] bg-white border border-gray-200 rounded-2xl shadow-2xl flex flex-col z-50 overflow-hidden"
           >
             {/* Header */}
             <div className="p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
@@ -88,7 +95,7 @@ export default function AiAssistant() {
                   </div>
                   <div>
                     <h3 className="font-bold">AI Assistant</h3>
-                    <p className="text-xs opacity-90">Online • Ready to help</p>
+                    <p className="text-xs opacity-90">Online</p>
                   </div>
                 </div>
                 <Button
@@ -105,19 +112,20 @@ export default function AiAssistant() {
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
               {messages.map((msg, i) => (
-                <div
-                  key={i}
-                  className={cn("flex", msg.role === "user" ? "justify-end" : "justify-start")}
-                >
+                <div key={i} className="space-y-2">
                   <div
-                    className={cn(
-                      "max-w-xs px-4 py-3 rounded-2xl text-sm",
-                      msg.role === "user"
-                        ? "bg-blue-600 text-white rounded-br-none"
-                        : "bg-white text-gray-800 border border-gray-200 rounded-bl-none shadow-sm"
-                    )}
+                    className={cn("flex", msg.role === "user" ? "justify-end" : "justify-start")}
                   >
-                    {msg.content}
+                    <div
+                      className={cn(
+                        "max-w-xs px-4 py-3 rounded-2xl text-sm",
+                        msg.role === "user"
+                          ? "bg-blue-600 text-white rounded-br-none"
+                          : "bg-white text-gray-800 border border-gray-200 rounded-bl-none shadow-sm"
+                      )}
+                    >
+                      {msg.content}
+                    </div>
                   </div>
                 </div>
               ))}

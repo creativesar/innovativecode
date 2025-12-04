@@ -5,7 +5,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, AnimatePresence } from "framer-motion";
-import { GlassCard } from "@/components/ui/glass-card";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Search, Filter, Layers } from "lucide-react";
@@ -101,7 +100,7 @@ export default function ProjectsPage() {
     }, { scope: containerRef, dependencies: [loading, filteredProjects] });
 
     return (
-        <div ref={containerRef} className="min-h-screen bg-background relative overflow-hidden selection:bg-primary/20">
+        <div ref={containerRef} className="min-h-screen bg-background relative overflow-hidden selection:bg-primary/20 section-bg">
             {/* Subtle Background Pattern */}
             <div className="fixed inset-0 pointer-events-none opacity-[0.03]"
                 style={{ backgroundImage: 'radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)', backgroundSize: '40px 40px' }}>
@@ -126,7 +125,7 @@ export default function ProjectsPage() {
                             <Layers className="w-5 h-5" />
                             <span className="text-sm font-semibold tracking-wider uppercase">Portfolio</span>
                         </div>
-                        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-foreground">
+                        <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-foreground gradient-text">
                             Selected <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">Works</span>
                         </h1>
                         <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
@@ -150,7 +149,7 @@ export default function ProjectsPage() {
                                 placeholder="Search projects..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                className="w-full md:w-[300px] pl-11 pr-4 py-3 bg-background/50 backdrop-blur-sm border border-border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm hover:shadow-md"
+                                className="w-full md:w-[300px] pl-11 pr-4 py-3 bg-background/50 backdrop-blur-sm border border-border rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all shadow-sm hover:shadow-md input-modern"
                             />
                         </div>
                     </motion.div>
@@ -215,7 +214,7 @@ export default function ProjectsPage() {
                                                 e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
                                             }}
                                         >
-                                            <GlassCard className="h-full flex flex-col overflow-hidden border-border/40 bg-background/40 hover:bg-background/60 transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5">
+                                            <div className="modern-card h-full flex flex-col overflow-hidden border-border/40 bg-background/40 hover:bg-background/60 transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/5">
                                                 {/* Image Container */}
                                                 <div className="relative aspect-[16/10] overflow-hidden rounded-t-xl bg-muted/50">
                                                     <Image
@@ -241,7 +240,7 @@ export default function ProjectsPage() {
                                                             <span className="text-xs font-bold text-primary tracking-wider uppercase mb-2 block">
                                                                 {project.category}
                                                             </span>
-                                                            <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300">
+                                                            <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors duration-300 gradient-text">
                                                                 {project.title}
                                                             </h3>
                                                         </div>
@@ -265,7 +264,7 @@ export default function ProjectsPage() {
                                                         </div>
                                                     )}
                                                 </div>
-                                            </GlassCard>
+                                            </div>
                                         </Link>
                                     </motion.div>
                                 ))}
@@ -301,7 +300,7 @@ export default function ProjectsPage() {
                     className="mt-32 text-center relative"
                 >
                     <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary/5 rounded-full blur-[80px] pointer-events-none" />
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6 relative z-10">
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6 relative z-10 gradient-text">
                         Have a vision in mind?
                     </h2>
                     <p className="text-muted-foreground mb-8 max-w-xl mx-auto relative z-10">
@@ -309,7 +308,7 @@ export default function ProjectsPage() {
                     </p>
                     <Link
                         href="/contact"
-                        className="relative z-10 inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-primary-foreground bg-primary rounded-full hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/25 hover:-translate-y-1 group"
+                        className="relative z-10 inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-primary-foreground bg-primary rounded-full hover:bg-primary/90 transition-all duration-300 shadow-lg hover:shadow-primary/25 hover:-translate-y-1 group btn-modern"
                     >
                         Start a Conversation
                         <ArrowUpRight className="ml-2 w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

@@ -12,6 +12,7 @@ const navLinks = [
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Projects", href: "/projects" },
+    { name: "Tech Demo", href: "/tech-demo" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
 ];
@@ -31,50 +32,55 @@ export function Navbar() {
     return (
         <header
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+                "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
                 isScrolled
-                    ? "bg-background/95 backdrop-blur-md border-b border-border/50 py-3"
-                    : "bg-transparent py-5"
+                    ? "bg-background/80 backdrop-blur-xl border-b border-border/70 py-2 shadow-xl" 
+                    : "bg-transparent py-4"
             )}
         >
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
-                <Link href="/" className="flex items-center" aria-label="Home">
-                    <Image
-                        src="/innovativecode-01.png"
-                        alt="Logo"
-                        width={120}
-                        height={120}
-                        priority
-                        className="rounded-md"
-                    />
+                <Link href="/" className="flex items-center group" aria-label="Home">
+                    <div className="relative">
+                        <Image
+                            src="/innovativecode-01.png"
+                            alt="InnovativeCode Logo"
+                            width={180}
+                            height={40}
+                            className="object-contain transition-all duration-300"
+                        />
+                    </div>
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-8">
+                <nav className="hidden md:flex items-center gap-10">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors relative group"
+                            className="text-base font-medium text-slate-600 hover:text-cyan-600 transition-all duration-300 relative group py-2 px-4 rounded-xl"
                         >
                             {link.name}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full" />
+                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-500 to-purple-500 transition-all duration-500 group-hover:w-full rounded-full" />
+                            <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-full" />
                         </Link>
                     ))}
                     <Link
                         href="/contact"
-                        className="px-4 py-2 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
+                        className="px-6 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-base font-bold hover:from-purple-500 hover:to-cyan-500 transition-all duration-300 shadow-lg hover:shadow-cyan-500/30 group relative overflow-hidden"
                     >
-                        Get Started
+                        <span className="relative z-10 flex items-center">
+                            Get Started
+                        </span>
+                        <span className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-purple-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </Link>
                 </nav>
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden p-2 text-foreground"
+                    className="md:hidden p-3 text-foreground bg-gradient-to-br from-cyan-500/10 to-purple-500/10 rounded-2xl backdrop-blur-lg border border-cyan-300/30 hover:from-cyan-500/20 hover:to-purple-500/20 transition-all duration-300"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
-                    {isMobileMenuOpen ? <X /> : <Menu />}
+                    {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
                 </button>
             </div>
 
@@ -85,25 +91,28 @@ export function Navbar() {
                         initial={{ opacity: 0, height: 0 }}
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden bg-background border-b border-border overflow-hidden"
+                        className="md:hidden bg-background/90 backdrop-blur-xl border-b border-border overflow-hidden"
                     >
-                        <nav className="flex flex-col p-4 gap-4">
+                        <nav className="flex flex-col p-6 gap-4">
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className="text-lg font-medium text-foreground py-2 border-b border-border/50 last:border-0"
+                                    className="text-xl font-bold text-foreground py-4 border-b border-border/50 last:border-0 flex items-center group rounded-xl"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
-                                    {link.name}
+                                    <span className="group-hover:text-primary transition-colors duration-300">{link.name}</span>
+                                    <span className="ml-auto w-6 h-0.5 bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
                                 </Link>
                             ))}
                             <Link
                                 href="/contact"
-                                className="w-full text-center py-3 rounded-lg bg-primary text-primary-foreground font-medium mt-2"
+                                className="w-full text-center py-4 rounded-2xl bg-gradient-to-r from-primary to-accent text-primary-foreground font-bold mt-4 flex items-center justify-center group"
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >
-                                Get Started
+                                <span className="flex items-center">
+                                    Get Started
+                                </span>
                             </Link>
                         </nav>
                     </motion.div>

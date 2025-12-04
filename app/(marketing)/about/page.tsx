@@ -92,7 +92,7 @@ export default function AboutPage() {
   }, { scope: containerRef });
 
   return (
-    <div className="min-h-screen py-32 px-6 relative overflow-hidden">
+    <div className="min-h-screen py-32 px-6 relative overflow-hidden section-bg">
       {/* Hero Section */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -100,7 +100,7 @@ export default function AboutPage() {
         transition={{ duration: 0.8 }}
         className="max-w-4xl mx-auto text-center mb-32"
       >
-        <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent">
+        <h1 className="text-5xl md:text-7xl font-bold mb-6 gradient-text">
           Our Story
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed">
@@ -140,15 +140,15 @@ export default function AboutPage() {
               className={`flex items-center ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'
                 } justify-center`}
             >
-              <GlassCard className="w-full md:w-[45%] p-8 relative">
-                <div className="absolute -top-6 left-8 px-4 py-2 bg-primary text-white rounded-full font-bold text-sm">
+              <div className="modern-card w-full md:w-[45%] p-8 relative">
+                <div className="absolute -top-6 left-8 px-4 py-2 bg-primary text-white rounded-full font-bold text-sm floating-element">
                   {milestone.year}
                 </div>
-                <h3 className="text-3xl font-bold mb-4 mt-2">{milestone.title}</h3>
+                <h3 className="text-3xl font-bold mb-4 mt-2 gradient-text">{milestone.title}</h3>
                 <p className="text-lg text-muted-foreground leading-relaxed">
                   {milestone.description}
                 </p>
-              </GlassCard>
+              </div>
             </div>
           ))}
         </div>
@@ -162,13 +162,13 @@ export default function AboutPage() {
         transition={{ duration: 1 }}
         className="mt-48 max-w-4xl mx-auto text-center"
       >
-        <h2 className="text-4xl md:text-5xl font-bold mb-8">
+        <h2 className="text-4xl md:text-5xl font-bold mb-8 gradient-text">
           Built by Passionate Creators
         </h2>
         <p className="text-xl text-muted-foreground leading-relaxed mb-12">
           We're a diverse team of designers, developers, and strategists united by our love for building exceptional digital products.
         </p>
-        <GlassCard className="p-12">
+        <div className="modern-card p-12">
           <div className="flex flex-wrap justify-center gap-12 text-center">
             <div>
               <div className="text-4xl font-bold text-primary mb-2">50+</div>
@@ -187,7 +187,7 @@ export default function AboutPage() {
               <div className="text-sm text-muted-foreground">Support</div>
             </div>
           </div>
-        </GlassCard>
+        </div>
       </motion.div>
     </div>
   );

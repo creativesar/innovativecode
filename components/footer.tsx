@@ -36,7 +36,7 @@ export function Footer() {
                     </div>
 
                     <div>
-                        <h4 className="font-semibold mb-4">Services</h4>
+                        <h4 className="font-semibold mb-4 gradient-text">Services</h4>
                         <ul className="space-y-2 text-sm text-muted-foreground">
                             <li><Link href="/services" className="hover:text-primary transition-colors">Web Development</Link></li>
                             <li><Link href="/services" className="hover:text-primary transition-colors">UI/UX Design</Link></li>
@@ -47,7 +47,7 @@ export function Footer() {
                     </div>
 
                     <div>
-                        <h4 className="font-semibold mb-4">Company</h4>
+                        <h4 className="font-semibold mb-4 gradient-text">Company</h4>
                         <ul className="space-y-2 text-sm text-muted-foreground">
                             <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
                             <li><Link href="/projects" className="hover:text-primary transition-colors">Portfolio</Link></li>
@@ -57,7 +57,7 @@ export function Footer() {
                     </div>
 
                     <div>
-                        <h4 className="font-semibold mb-4">Newsletter</h4>
+                        <h4 className="font-semibold mb-4 gradient-text">Newsletter</h4>
                         <p className="text-sm text-muted-foreground mb-4">
                             Subscribe to get the latest news and updates.
                         </p>
@@ -65,11 +65,11 @@ export function Footer() {
                             <input
                                 type="email"
                                 placeholder="Enter your email"
-                                className="flex-1 px-3 py-2 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary"
+                                className="flex-1 px-3 py-2 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-primary input-modern"
                             />
                             <button
                                 type="submit"
-                                className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity"
+                                className="px-4 py-2 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 transition-opacity btn-modern"
                             >
                                 Join
                             </button>
@@ -78,7 +78,7 @@ export function Footer() {
                 </div>
 
                 <div className="border-t border-border mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
-                    <p>&copy; {new Date().getFullYear()}. All rights reserved.</p>
+                    <p>&copy; {new Date().getFullYear()} InnovativeCode. All rights reserved.</p>
                     <div className="flex gap-6">
                         <Link href="#" className="hover:text-primary transition-colors">Privacy Policy</Link>
                         <Link href="#" className="hover:text-primary transition-colors">Terms of Service</Link>
